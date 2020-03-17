@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/profile', 'ProfileController@index');
+Route::get('/profile/create', 'ProfileController@create');
+Route::post('/profile', 'ProfileController@store')->name('profile.store');
+Route::get('/profile/edit', 'ProfileController@edit');
+Route::post('/profile/{id}/update', 'ProfileController@update')->name('profile.update');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
